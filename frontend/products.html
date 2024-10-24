@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>صفحه محصولات</title>
+    <link rel="stylesheet" href="./content/css/cms/products.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!-- product details modal -->
+    <div class="modal" id="details-modal">
+      <div class="details-modal">
+        <table class="cms-table">
+          <tr>
+            <th>محبوبیت</th>
+            <th>میزان فروش</th>
+            <th>تعداد رنگ بندی</th>
+          </tr>
+          <tr>
+            <td id="popularity-td"></td>
+            <td id="sale-td"></td>
+            <td id="color-td"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Products Edit Modal -->
+
+    <div class="modal" id="edit-modal">
+      <form action="#" class="edit-modal-form">
+        <h1>اطلاعات جدید را وارد کنید</h1>
+        <div class="add-product-form-group">
+          <span>
+            <i class="bi bi-cursor-text"></i>
+          </span>
+          <input
+            type="text"
+            placeholder="نام محصول را بنویسید ..."
+            class="add-product-input"
+            id="edit-product-title"
+          />
+        </div>
+        <div class="add-product-form-group">
+          <span>
+            <i class="bi bi-currency-dollar"></i>
+          </span>
+          <input
+            type="text"
+            placeholder="قیمت محصول را بنویسید ..."
+            class="add-product-input"
+            id="edit-product-price"
+          />
+        </div>
+        <div class="add-product-form-group">
+          <span>
+            <i class="bi bi-bag"></i>
+          </span>
+          <input
+            type="text"
+            placeholder="موجودی محصول را بنویسید ..."
+            class="add-product-input"
+            id="edit-product-count"
+          />
+        </div>
+        <div class="add-product-form-group">
+          <span>
+            <i class="bi bi-card-image"></i>
+          </span>
+          <input
+            type="text"
+            placeholder="آدرس عکس محصول را بنویسید ..."
+            class="add-product-input"
+            id="edit-product-image"
+          />
+        </div>
+        <div class="add-product-form-group">
+          <span>
+            <i class="bi bi-card-image"></i>
+          </span>
+          <input
+            type="text"
+            placeholder="میزان محبوبیت محصول را بنویسید ..."
+            class="add-product-input"
+            id="edit-product-popularity"
+          />
+        </div>
+        <div class="add-product-form-group">
+          <span>
+            <i class="bi bi-card-image"></i>
+          </span>
+          <input
+            type="text"
+            placeholder="میزان فروش محصول را بنویسید ..."
+            class="add-product-input"
+            id="edit-product-sale"
+          />
+        </div>
+        <div class="add-product-form-group">
+          <span>
+            <i class="bi bi-card-image"></i>
+          </span>
+          <input
+            type="text"
+            placeholder="تعداد رنگ بندی محصول را بنویسید ..."
+            class="add-product-input"
+            id="edit-product-colors"
+          />
+        </div>
+        <button class="edit-form-submit" id="edit-modal-submit">
+          تغییر اطلاعات محصول
+        </button>
+      </form>
+    </div>
+    <!-- Delete Modal -->
+    <div class="modal" id="delete-modal">
+      <div class="delete-modal">
+        <h1>آیا از حذف محصول اطمینان دارید؟</h1>
+        <div class="delete-modal-btns">
+          <button
+            class="delete-btn delete-modal-accept-btn"
+            id="confirm-delete-product"
+          >
+            بله
+          </button>
+          <button
+            class="delete-btn delete-modal-reject-btn"
+            id="cancel-delete-product"
+          >
+            خیر
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <h1 class="sidebar-title">به داشبورد خود خوش آمدید</h1>
+      <ul class="sidebar-links">
+        <li>
+          <a href="#"><i class="bi bi-house">صفحه اصلی</i></a>
+        </li>
+      </ul>
+      <ul class="sidebar-links active">
+        <li>
+          <a href="#"><i class="bi bi-wallet2">محصولات</i></a>
+        </li>
+      </ul>
+      <ul class="sidebar-links">
+        <li>
+          <a href="comments.html"><i class="bi bi-envelope">کامنت ها</i></a>
+        </li>
+      </ul>
+      <ul class="sidebar-links">
+        <li>
+          <a href="users.html"><i class="bi bi-person">کاربران</i></a>
+        </li>
+      </ul>
+      <ul class="sidebar-links">
+        <li>
+          <a href="orders.html"><i class="bi bi-basket">سفارشات</i></a>
+        </li>
+      </ul>
+      <ul class="sidebar-links">
+        <li>
+          <a href="offs.html"><i class="bi bi-sun">تخفیف ها</i></a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="main">
+      <div class="header">
+        <div class="admin-profile">
+          <img src="" alt="admin-profile" id="admin-profile" />
+          <div>
+            <h1 id="admin-info"></h1>
+            <h3 id="admin-task"></h3>
+          </div>
+        </div>
+        <div class="header-left-section">
+          <div class="search-box">
+            <input type="search" placeholder="جستجو کنید ..." />
+            <button>جستجو..</button>
+          </div>
+          <button class="header-left-button">
+            <i class="bi bi-bell"></i>
+          </button>
+          <button class="header-left-button">
+            <i class="bi bi-brightness-high"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="products-main">
+        <h1 class="products-title">افزودن محصول جدید</h1>
+        <form action="#" class="add-product-form">
+          <div class="add-product-form-wrap">
+            <div class="add-product-form-group">
+              <span>
+                <i class="bi bi-cursor-text"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="نام محصول را بنویسید ..."
+                class="add-product-input"
+                id="product-title"
+              />
+            </div>
+            <div class="add-product-form-group">
+              <span>
+                <i class="bi bi-currency-dollar"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="قیمت محصول را بنویسید ..."
+                class="add-product-input"
+                id="product-price"
+              />
+            </div>
+            <div class="add-product-form-group">
+              <span>
+                <i class="bi bi-bag"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="موجودی محصول را بنویسید ..."
+                class="add-product-input"
+                id="product-count"
+              />
+            </div>
+            <div class="add-product-form-group">
+              <span>
+                <i class="bi bi-card-image"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="آدرس عکس محصول را بنویسید ..."
+                class="add-product-input"
+                id="product-image"
+              />
+            </div>
+            <div class="add-product-form-group">
+              <span>
+                <i class="bi bi-card-image"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="میزان محبوبیت محصول را بنویسید ..."
+                class="add-product-input"
+                id="product-popularity"
+              />
+            </div>
+            <div class="add-product-form-group">
+              <span>
+                <i class="bi bi-card-image"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="میزان فروش محصول را بنویسید ..."
+                class="add-product-input"
+                id="product-sale"
+              />
+            </div>
+            <div class="add-product-form-group">
+              <span>
+                <i class="bi bi-card-image"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="تعداد رنگ بندی محصول را بنویسید ..."
+                class="add-product-input"
+                id="product-colors"
+              />
+            </div>
+          </div>
+          <button class="add-product-submit" id="add-new-product-btn">
+            ثبت محصول
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="./content/js/adminsInfo.js"></script>
+    <script src="./content/js/products.js"></script>
+    <script src="./content/js/addNewProduct.js"></script>
+  </body>
+</html>

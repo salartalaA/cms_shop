@@ -1,0 +1,155 @@
+main url = http://localhost:4000/api/
+
+//////////////////// Start Products Routes (sub_url => products/) ////////////////////
+
+1. Get all products
+    method => GET
+    res => all products array
+
+2. Delete main product
+    method => DELETE
+    req params => productID => Product ID
+
+3. Update main product
+    method => product
+    req params => productID => Product ID
+    req body => {
+        title => عنوان محصول
+        price => مبلغ محصول
+        count => موجودی محصول
+        img => آدرس عکس محصول
+        popularity => میزان محبوبیت
+        sale => میزان فروش
+        colors => میزان رنگ بندی
+    }
+4. Add new product
+    method => POST
+    req body => {
+        title => عنوان محصول
+        price => مبلغ محصول
+        count => موجودی محصول
+        img => آدرس عکس محصول
+        popularity => میزان محبوبیت
+        sale => میزان فروش
+        colors => میزان رنگ بندی
+    }
+
+//////////////////// Finish Products Routes (sub_url => products/) ////////////////////
+
+//////////////////// Start comments Routes (sub_url => comments/) ////////////////////
+
+1. Get all comments
+    method => GET
+    res => all products array
+
+2. Delete main comment
+    method => DELETE
+    req params => commentID => comment ID
+
+3. Update main comment
+    method => PUT
+    req params => commentID => comment ID
+    req body => {
+        body => محتوای جدید کامنت
+    }
+
+//////////////////// Finish comments Routes (sub_url => comments/) ////////////////////
+
+//////////////////// Start users Routes (sub_url => users/) ////////////////////
+
+1. Get all users
+    method => GET
+    req params => userID => user ID
+
+2. Delete main user
+    method => DELETE
+    req params => userID user ID
+    req body => {
+        firstname => نام کاربر
+        lastname => نام خانوادگی کاربر
+        username => نام کاربری کاربر
+        password => گذرواژه کاربر
+        phone => شماره تلفن کاربر
+        city => شهر کاربر
+        email => ایمیل کاربر
+        address => آدرس کاربر
+        score => امتیاز کاربر
+        buy => میزان خرید کاربر
+    }
+
+//////////////////// Finish users Routes (sub_url => users/) ////////////////////
+
+//////////////////// Start orders Routes (sub_url => orders/) ////////////////////
+
+1. Get all orders
+    method => GET
+    sub_url => /active-order
+    res => all orders array
+
+2. Delete main user
+    method => DELETE
+    req params => orderID => order ID
+
+3. Update main user
+    method => PUT
+    req params => orderID => order ID
+    req params => isActive (0 OR 1) => Accept / Reject Order
+
+//////////////////// Finish orders Routes (sub_url => orders/) ////////////////////
+
+//////////////////// Start offs Routes (sub_url => offs/) ////////////////////
+
+1. Get all offs
+    method => GET
+    res => all offs array
+
+2. Delete main off
+    method => DELETE
+    req params => offID => off ID
+
+3. Accept / Reject off code
+    method => PUT
+    sub_url => /active-off
+    req params => offID => off ID
+    req params => isActive (0 OR 1) => Reject / Accept off
+
+//////////////////// Finish offs Routes (sub_url => offs/) ////////////////////
+
+//////////////////// Start admins Routes (sub_url => admins/) ////////////////////
+
+1. Get main admin info
+    method => GET
+    req header => authorization => Admin Token
+
+//////////////////// Finish admins Routes (sub_url => admins/) ////////////////////
+
+-----------------------------------------------------------------------------------
+
+mainUrl = http://localhost:4000/api/
+
+1. Get all products by category
+    sub_routes: products
+    method: GET
+
+2. Get main product's info
+    sub_routes: products/:productID
+    req param => productID => product id
+    method: GET
+
+3. Add new product to user Basket
+    sub_routes: basket/:userID
+    req param => userID => user id
+    req body {
+        productID,
+        productImg,
+        productTitle,
+        productPrice,
+        productUrl
+    }
+    method: POST
+
+4. Increase Product Count In User Basket
+    sub_routes: basket/userID/productID
+    req param => userID => user id
+    req param => productID => product id
+    method: PUT

@@ -1,0 +1,84 @@
+@import "../custom.css";
+@import "../aside.css";
+@import "../header.css";
+
+.cms-empty-err {
+  font-size: 2rem;
+  background-color: #ff4f4f;
+  margin-top: 20px;
+  padding: 20px;
+  color: var(--white);
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cms-main {
+  margin-top: 60px;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.cms-title {
+  font-size: 2rem;
+}
+
+.cms-table {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--white);
+}
+
+.cms-table tr {
+  text-align: center;
+}
+
+.cms-table tr:not(:first-child) {
+  border-top: 1px solid #dedede;
+}
+
+.cms-table th {
+  padding: 20px;
+}
+
+.cms-table td {
+  padding: 20px;
+}
+
+.cms-table button {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
+.delete-modal {
+  background-color: var(--white);
+  text-align: center;
+  padding: 50px;
+}
+
+.delete-modal h1 {
+  font-size: 2rem;
+}
+
+.delete-modal-btns {
+  display: flex;
+  column-gap: 20px;
+}
+
+.delete-btn {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 1.3rem;
+  padding: 10px 0;
+}
+
+.delete-modal-accept-btn {
+  background-color: var(--blue);
+  width: 100%;
+  color: var(--white);
+}
